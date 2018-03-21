@@ -1,0 +1,22 @@
+<svg width="160" height="200" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <title>Layer 1</title>
+  <rect rx="9" id="svg_1" height="196" width="156" y="2" x="2" stroke-width="2" stroke="#000" fill="#fff"/>
+
+  <text font-style="italic" text-anchor="start" font-family="serif" font-size="60" y="55" x="21.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">μ</text>
+
+  <g id="short_lines">
+	  <rect height="5" stroke="currentColor" y="20" x="68" width="82.5" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="40" x="68" width="82.5" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="60" x="68" width="82.5" stroke-width="1" fill="none"/>
+  </g>
+
+  <g id="long_lines">
+	  <rect height="5" stroke="currentColor" y="80" x="9.5" width="141" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="100" x="9.5" width="141" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="120" x="9.5" width="141" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="140" x="9.5" width="141" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="160" x="9.5" width="141" stroke-width="1" fill="none"/>
+	  <rect height="5" stroke="currentColor" y="180" x="9.5" width="141" stroke-width="1" fill="none"/>
+  </g>
+</svg>

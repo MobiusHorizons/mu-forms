@@ -1,0 +1,46 @@
+{
+	"name": "mu-forms",
+	"version": "1.0.0",
+	"description": "Dead Simple HTML5 form management for React/Preact",
+	"main": "mu-forms.js",
+	"repository": "https://github.com/MobiusHorizons/mu-forms",
+	"author": "MobiusHorizons <codemobius@gmail.com>",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"babel": "babel -d build --ignore '*.test.js' src",
+		"build": "npm-run-all -s babel -p docs build:generic build:preact build:react",
+		"build:generic": "microbundle build/index.js",
+		"build:preact": "microbundle build/preact/index.js -o preact.js",
+		"build:react": "microbundle build/react/index.js -o react.js",
+		"docs" : "documentation readme src/index.js -s \"API\" --github",
+		"examples" : "npm-run-all -p examples:index examples:preact examples:react",
+		"examples:index" : "cp examples/index.html ./",
+		"examples:preact": "parcel build examples/preact.html -d .",
+		"examples:react": "parcel build examples/react.html -d ."
+	},
+	"dependencies": {
+		"linkstate": "^1.1.1"
+	},
+	"optionalDependencies": {
+		"preact": "^8.2.7",
+		"react": "^16.2.0"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.4",
+		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-0": "^6.24.1",
+		"documentation": "^6.1.0",
+		"less": "^3.0.1",
+		"microbundle": "^0.4.4",
+		"npm-run-all": "^1.4.0",
+		"parcel-bundler": "^1.6.2",
+		"preact": "^8.2.7",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"webpack": "^4.1.1",
+		"webpack-cli": "^2.0.12"
+	}
+}
