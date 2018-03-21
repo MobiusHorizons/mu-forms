@@ -16,8 +16,8 @@
 		"docs" : "documentation readme src/index.js -s \"API\" --github",
 		"examples" : "npm-run-all -p examples:index examples:preact examples:react",
 		"examples:index" : "cp examples/index.html ./",
-		"examples:preact": "parcel build examples/preact.html -d .",
-		"examples:react": "parcel build examples/react.html -d ."
+		"examples:preact": "parcel build examples/preact.html -d . --public-url /mu-forms",
+		"examples:react": "parcel build examples/react.html -d . --public-url /mu-forms"
 	},
 	"dependencies": {
 		"linkstate": "^1.1.1"
