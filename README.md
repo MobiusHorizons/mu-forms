@@ -14,11 +14,118 @@ data of the parent `<Form>` by creating connected components using [`connectForm
 Mu-forms additionally provides validation, synchronous and asynchronous submission, as well as the 
 ability to preload the form with data.
 
+## Examples
+
+ Check the [examples](https://mobiushorizons.github.com/mu-forms) to see working code in both 
+ `React` and `Preact`.
+
+### Building a Form
+
+Creating a form is as simple as adding connected inputs and giving them a `name` prop.
+In the following example, `TextInput` is a wrapper arround an input, and `Errors` just displays 
+any errors we might have.
+
+```jsx
+<Form onSubmit={submit} onSubmitted={done}>
+	<Errors /> 
+	<h1> Example Registration Form </h1>
+
+	<TextInput
+		label="Email"
+		name="email"
+		type="email"
+		required
+	/>
+
+	<TextInput
+		label="Password"
+		name="password"
+		type="password"
+		minLength={8}
+		invalidText="Please enter at least 8 characters"
+		required
+	/>
+
+	<TextInput
+		label="Confirm Password"
+		name="password2"
+		type="password"
+		validate={(val, form) => val == form.password }
+		invalidText="Passwords must match"
+		required
+	/>
+	<button type="submit"> 
+		<span>Register</span>
+		<span className="loading" />
+	</button>
+</Form>
+```
+
+The `submit` function shown above can return a Promise in order to put the form into a `submitting` state.
+```javascript
+function submit(data) {
+	// return a promise to show the loading state of the form.
+	return new Promise((resolve,reject) => {
+		setTimeout(() => {
+			if (data.email == 'error@example.com') {
+				// this will set `status.error` to true, and display the error
+				reject('Oops Something went wrong...');
+			} else {
+				// this will call our `onSubmitted` function.
+				resolve();
+			}
+		}, 2400);
+	});
+}
+```
+
+The done function will only be fired if the submit was successful. Normally you would use this for 
+closing a modal, or navigation, but we will just use an alert to show that it has completed.
+
+```javascript
+function done(result) {
+	alert('Form successfully submitted');
+}
+```
+
+### connectForm
+
+To make the above example actually work, we need to create components that can be connected into the form.
+We will start with a text input wrapper.
+
+```jsx
+/** 
+ * This component wraps a standard `input` with a label, and some optional invalid text 
+ * invalid text is shown/hidden using css, but you could use `invalid` and `status.invalid` instead
+ */
+const _TextInput = ({ invalid, invalidText, onChange, validate, label, status, ...props}) => (
+	<label className="text-input" invalid={invalid ? '' : null}>
+		<span className="text-input__label">{label}</span>
+		<input onInput={onChange} {...props}/>
+		<span className="text-input__invalid_text">{invalidText}</span>
+	</label>
+);
+const TextInput = connectForm(_TextInput);
+```
+
+```jsx
+/* This component displays any errors present on the form */
+const _Errors = ({ status }) => (
+	status.error ? (
+		<div className="error">
+			<span className="error-title">Error:</span>
+			<span>{status.error}</span>
+		</div>
+	) : null
+)
+const Errors = connectForm(_Errors);
+```
+
 ## Validation
 
-Mu-forms also provides access to the native HTML5 input validation. `connectForm` passes the 
-`invalid` prop to the connected component, which can be used to change the class or display messaging.
-The `invalid` property reflects the native HTML5 input validity based on `required`, `pattern`, etc. 
+Mu-forms provides access to the native HTML5 input validation. `connectForm` passes the `invalid` 
+prop to the connected component, which can be used to change the class or display messaging.  The 
+`invalid` property reflects the native HTML5 input validity based on `required`, `pattern`, etc. 
 including custom HTML5 validity. Mu-forms provides the ability to set custom validation by passing a 
 `validate` function to your connected form field. The `validate` function gets passed three arguments.
 
@@ -73,109 +180,6 @@ Error states can also easily be handled by simply rejecting the promise with a v
 later use to generate a user friendly message. You can simply create an error component and connect 
 it to the form with `connectForm`. As soon as the Promise returned by `onSubmit` becomes rejected,
 `status.error` will be updated with error value caught by the Promise.
-
-# Examples
-
- Check the [examples](https://mobiushorizons.github.com/mu-forms) to see working code in both 
- `React` and `Preact`.
-
-## connectForm
-
-First lets build some connected components to use in our form.
-
-```javascript
-import React from 'react';
-import { connectForm } from 'mu-forms/react';
-
-/* This component displays any errors present on the form */
-const _Errors = ({ status }) => (
-	status.error ? (
-		<div className="error">
-			<span className="error-title">Error:</span>
-			<span>{status.error}</span>
-		</div>
-	) : null
-)
-const Errors = connectForm(_Errors);
-
-/** 
- * This component wraps a standard `input` with a label, and some optional invalid text 
- * invalid text is shown/hidden using css, but you could use `invalid` and `status.invalid` instead
- */
-const _TextInput = ({ invalid, invalidText, onChange, validate, label, status, ...props}) => (
-	<label className="text-input" invalid={invalid ? '' : null}>
-		<span className="text-input__label">{label}</span>
-		<input onInput={onChange} {...props}/>
-		<span className="text-input__invalid_text">{invalidText}</span>
-	</label>
-);
-const TextInput = connectForm(_TextInput);
-```
-
-## Building a Form
-
-With relatively simple wrapped components as shown above, we can build a relatively complex form as seen below:
-
-```javascript
-import React from 'react';
-import { Form } from 'mu-forms/react';
-import { Errors, TextInput } from '^^above^^';
-
-function done(result) {
-	alert('Form successfully submitted');
-}
-
-function submit(data) {
-	// return a promise to show the loading state of the form.
-	return new Promise((resolve,reject) => {
-		setTimeout(() => {
-			if (data.email == 'error@example.com') {
-				// this will set `status.error` to true, and display the error
-				reject('Oops Something went wrong...');
-			} else {
-				// this will call our `onSubmitted` function.
-				resolve();
-			}
-		}, 2400);
-	});
-}
-
-const App = () => (
-	<Form onSubmit={submit} onSubmitted={done}>
-		<Errors />
-		<h1> Example Registration Form </h1>
-
-		<TextInput
-			label="Email"
-			name="email"
-			type="email"
-			required
-		/>
-
-		<TextInput
-			label="Password"
-			name="password"
-			type="password"
-			minLength={8}
-			invalidText="Please enter at least 8 characters"
-			required
-		/>
-
-		<TextInput
-			label="Confirm Password"
-			name="password2"
-			type="password"
-			validate={(val, form) => val == form.password }
-			invalidText="Passwords must match"
-			required
-		/>
-		<button type="submit"> 
-			<span>Register</span>
-			<span className="loading" />
-		</button>
-	</Form>
-);
-```
 
 # API
 
