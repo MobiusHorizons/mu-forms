@@ -62,6 +62,7 @@ any errors we might have.
 ```
 
 The `submit` function shown above can return a Promise in order to put the form into a `submitting` state.
+
 ```javascript
 function submit(data) {
 	// return a promise to show the loading state of the form.
@@ -194,6 +195,8 @@ it to the form with `connectForm`. As soon as the Promise returned by `onSubmit`
 
 ## Form
 
+[src/common/form.js:34-159](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L34-L159 "Source code on GitHub")
+
 **Extends Component**
 
 The `<Form>` component will store the data from any connected inputs. It will call `onSubmit` 
@@ -209,6 +212,8 @@ if the form is submitted (user presses enter, or clicks on a submit button), and
 -   `context`  
 
 ## onSubmit
+
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L93-L108 "Source code on GitHub")
 
 The function passed to `onSubmit` will be called when the form is submitted, and all
 validations have been met.
@@ -246,6 +251,8 @@ either resolves or rejects.-   If the promise resolves, `onSubmitted` is called 
 
 ## onSubmitted
 
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L93-L108 "Source code on GitHub")
+
 The function passed to `onSubmitted` will be called once the submission is considered complete.
 That is, either after the `onSubmit` has completed synchronously, or after a promise returned
 by `onSubmit` has resolved.
@@ -255,6 +262,8 @@ by `onSubmit` has resolved.
 -   `value` **([Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** The value returned by onSubmit synchronously, or returned by a Promise asynchronously.
 
 ## connectForm
+
+[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/connect.js#L87-L122 "Source code on GitHub")
 
 Wire up a component to the `<Form>`, giving it access to form data as `status`. If the connected component 
 is passed a `name` property, then the component also gets the `value`, `invalid` and `onChange` properties.
