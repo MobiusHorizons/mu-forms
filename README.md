@@ -2,17 +2,37 @@
 
 > Dead simple form library for React/Preact.
 
-![mu-forms logo](./mu-forms.svg)
+![mu-forms logo](https://cdn.rawgit.com/mobiushorizons/mu-forms/master/mu-forms.svg)
 
 ## Rationale
 
-Mu-forms stores form data in the state of a wrapper `Component` [(`<Form>`)](#Form) instead of a 
+Mu-forms stores form data in the state of a wrapper `Component` [(`<Form>`)](#form) instead of a 
 `Redux store`. By doing so, it keeps invalid / incomplete user-submitted data out of your `store`. 
 Leaving it cleaner and easier to reason about. At the same time it allows you to connect to the 
-data of the parent `<Form>` by creating connected components using [`connectForm`](#conectForm). 
+data of the parent `<Form>` by creating connected components using [connectForm](#connectform).
 
 Mu-forms additionally provides validation, synchronous and asynchronous submission, as well as the 
 ability to preload the form with data.
+
+## Installing
+
+`mu-forms` can be installed from npm:
+
+    npm install mu-forms --save
+
+or using `Yarn`:
+
+    yarn add mu-forms
+
+## Importing
+
+To include it in a `Preact` project, import from `mu-forms/preact` like so:
+
+    import { Form, connectForm } from 'mu-forms/preact'
+
+Similarly to use it for `React` based projects, import from `mu-forms/react`
+
+    import { Form, connectForm } from 'mu-forms/react'
 
 ## Examples
 
@@ -195,7 +215,7 @@ it to the form with `connectForm`. As soon as the Promise returned by `onSubmit`
 
 ## Form
 
-[src/common/form.js:34-159](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L34-L159 "Source code on GitHub")
+[src/common/form.js:34-159](https://github.com/MobiusHorizons/mu-forms/blob/fc5d89e03370563ee57b1baf5b2f4d36bc4ba641/src/common/form.js#L34-L159 "Source code on GitHub")
 
 **Extends Component**
 
@@ -213,7 +233,7 @@ if the form is submitted (user presses enter, or clicks on a submit button), and
 
 ## onSubmit
 
-[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L93-L108 "Source code on GitHub")
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/fc5d89e03370563ee57b1baf5b2f4d36bc4ba641/src/common/form.js#L93-L108 "Source code on GitHub")
 
 The function passed to `onSubmit` will be called when the form is submitted, and all
 validations have been met.
@@ -251,7 +271,7 @@ either resolves or rejects.-   If the promise resolves, `onSubmitted` is called 
 
 ## onSubmitted
 
-[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/form.js#L93-L108 "Source code on GitHub")
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/fc5d89e03370563ee57b1baf5b2f4d36bc4ba641/src/common/form.js#L93-L108 "Source code on GitHub")
 
 The function passed to `onSubmitted` will be called once the submission is considered complete.
 That is, either after the `onSubmit` has completed synchronously, or after a promise returned
@@ -263,7 +283,7 @@ by `onSubmit` has resolved.
 
 ## connectForm
 
-[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/d2fc6d9f910ffb0d4446dba83ffceca5b728ba53/src/common/connect.js#L87-L122 "Source code on GitHub")
+[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/fc5d89e03370563ee57b1baf5b2f4d36bc4ba641/src/common/connect.js#L87-L122 "Source code on GitHub")
 
 Wire up a component to the `<Form>`, giving it access to form data as `status`. If the connected component 
 is passed a `name` property, then the component also gets the `value`, `invalid` and `onChange` properties.
