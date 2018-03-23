@@ -1,9 +1,9 @@
-import Wraper from '../index';
+import Wrapper from '../index';
 
 let { 
 	Form, 
 	connectForm, 
-} = Wraper(require('preact'));
+} = Wrapper(require('preact'));
 
 export {
 	Form,
