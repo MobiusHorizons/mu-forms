@@ -1,12 +1,32 @@
 {
 	"name": "mu-forms",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Dead Simple HTML5 form management for React/Preact",
 	"main": "mu-forms.js",
 	"repository": "https://github.com/MobiusHorizons/mu-forms",
 	"author": "MobiusHorizons <codemobius@gmail.com>",
 	"license": "MIT",
 	"private": false,
+	"files": [
+		"mu-forms.js",
+		"mu-forms.js.map",
+		"mu-forms.m.js",
+		"mu-forms.m.js.map",
+		"mu-forms.umd.js",
+		"mu-forms.umd.js.map",
+		"preact.js",
+		"preact.js.map",
+		"preact.m.js",
+		"preact.m.js.map",
+		"preact.umd.js",
+		"preact.umd.js.map",
+		"react.js",
+		"react.js.map",
+		"react.m.js",
+		"react.m.js.map",
+		"react.umd.js",
+		"react.umd.js.map"
+	],
 	"scripts": {
 		"babel": "babel -d build --ignore '*.test.js' src",
 		"build": "npm-run-all -s babel -p docs build:generic build:preact build:react",
@@ -17,7 +37,8 @@
 		"examples" : "npm-run-all -p examples:index examples:preact examples:react",
 		"examples:index" : "cp examples/index.html ./",
 		"examples:preact": "parcel build examples/preact.html -d . --public-url /mu-forms",
-		"examples:react": "parcel build examples/react.html -d . --public-url /mu-forms"
+		"examples:react": "parcel build examples/react.html -d . --public-url /mu-forms",
+		"prepublish" : "npm run -s build"
 	},
 	"dependencies": {
 		"linkstate": "^1.1.1"
