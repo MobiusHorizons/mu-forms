@@ -215,7 +215,7 @@ it to the form with `connectForm`. As soon as the Promise returned by `onSubmit`
 
 ## Form
 
-[src/common/form.js:34-159](https://github.com/MobiusHorizons/mu-forms/blob/0681d0a63aaf438e0838e9657b60e829d5afe9d2/src/common/form.js#L34-L159 "Source code on GitHub")
+[src/common/form.js:34-159](https://github.com/MobiusHorizons/mu-forms/blob/c3cc3f085424c4ea5b94d21376a1dd3496045646/src/common/form.js#L34-L159 "Source code on GitHub")
 
 **Extends Component**
 
@@ -233,7 +233,7 @@ if the form is submitted (user presses enter, or clicks on a submit button), and
 
 ## onSubmit
 
-[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/0681d0a63aaf438e0838e9657b60e829d5afe9d2/src/common/form.js#L93-L108 "Source code on GitHub")
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/c3cc3f085424c4ea5b94d21376a1dd3496045646/src/common/form.js#L93-L108 "Source code on GitHub")
 
 The function passed to `onSubmit` will be called when the form is submitted, and all
 validations have been met.
@@ -271,7 +271,7 @@ either resolves or rejects.-   If the promise resolves, `onSubmitted` is called 
 
 ## onSubmitted
 
-[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/0681d0a63aaf438e0838e9657b60e829d5afe9d2/src/common/form.js#L93-L108 "Source code on GitHub")
+[src/common/form.js:93-108](https://github.com/MobiusHorizons/mu-forms/blob/c3cc3f085424c4ea5b94d21376a1dd3496045646/src/common/form.js#L93-L108 "Source code on GitHub")
 
 The function passed to `onSubmitted` will be called once the submission is considered complete.
 That is, either after the `onSubmit` has completed synchronously, or after a promise returned
@@ -283,7 +283,7 @@ by `onSubmit` has resolved.
 
 ## connectForm
 
-[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/0681d0a63aaf438e0838e9657b60e829d5afe9d2/src/common/connect.js#L87-L122 "Source code on GitHub")
+[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/c3cc3f085424c4ea5b94d21376a1dd3496045646/src/common/connect.js#L87-L122 "Source code on GitHub")
 
 Wire up a component to the `<Form>`, giving it access to form data as `status`. If the connected component 
 is passed a `name` property, then the component also gets the `value`, `invalid` and `onChange` properties.
