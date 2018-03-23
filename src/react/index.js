@@ -1,9 +1,9 @@
-import Wraper from '../index';
+import Wrapper from '../index';
 
 let { 
 	Form, 
 	connectForm, 
-} = Wraper(require('react'));
+} = Wrapper(require('react'));
 
 export {
 	Form,
