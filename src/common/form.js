@@ -48,7 +48,7 @@ export default vdom => {
 			this.ref = {};
 		}
 			/**
-			 * The function passed to `onChange` will be called whenever the ford data is updated.
+			 * The function passed to `onChange` will be called whenever the form data is updated.
 			 *
 			 * @function onChange
 			 * @param {Object}  data  An Object containing the complete form data.

@@ -216,7 +216,7 @@ it to the form with `connectForm`. As soon as the Promise returned by `onSubmit`
 
 ## Form
 
-[src/common/form.js:35-170](https://github.com/MobiusHorizons/mu-forms/blob/b4422ac4f9ab839fda8375e282e2dd810b4a8708/src/common/form.js#L35-L170 "Source code on GitHub")
+[src/common/form.js:35-170](https://github.com/MobiusHorizons/mu-forms/blob/d8cf4adddf076f0e09b6f43d328551fe052625db/src/common/form.js#L35-L170 "Source code on GitHub")
 
 **Extends Component**
 
@@ -235,9 +235,9 @@ if the form is submitted (user presses enter, or clicks on a submit button), and
 
 ## onChange
 
-[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/b4422ac4f9ab839fda8375e282e2dd810b4a8708/src/common/form.js#L102-L119 "Source code on GitHub")
+[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/d8cf4adddf076f0e09b6f43d328551fe052625db/src/common/form.js#L102-L119 "Source code on GitHub")
 
-The function passed to `onChange` will be called whenever the ford data is updated.
+The function passed to `onChange` will be called whenever the form data is updated.
 
 **Parameters**
 
@@ -246,7 +246,7 @@ The function passed to `onChange` will be called whenever the ford data is updat
 
 ## onSubmit
 
-[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/b4422ac4f9ab839fda8375e282e2dd810b4a8708/src/common/form.js#L102-L119 "Source code on GitHub")
+[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/d8cf4adddf076f0e09b6f43d328551fe052625db/src/common/form.js#L102-L119 "Source code on GitHub")
 
 The function passed to `onSubmit` will be called when the form is submitted, and all
 validations have been met.
@@ -284,7 +284,7 @@ either resolves or rejects.-   If the promise resolves, `onSubmitted` is called 
 
 ## onSubmitted
 
-[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/b4422ac4f9ab839fda8375e282e2dd810b4a8708/src/common/form.js#L102-L119 "Source code on GitHub")
+[src/common/form.js:102-119](https://github.com/MobiusHorizons/mu-forms/blob/d8cf4adddf076f0e09b6f43d328551fe052625db/src/common/form.js#L102-L119 "Source code on GitHub")
 
 The function passed to `onSubmitted` will be called once the submission is considered complete.
 That is, either after the `onSubmit` has completed synchronously, or after a promise returned
@@ -296,7 +296,7 @@ by `onSubmit` has resolved.
 
 ## connectForm
 
-[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/b4422ac4f9ab839fda8375e282e2dd810b4a8708/src/common/connect.js#L87-L122 "Source code on GitHub")
+[src/common/connect.js:87-122](https://github.com/MobiusHorizons/mu-forms/blob/d8cf4adddf076f0e09b6f43d328551fe052625db/src/common/connect.js#L87-L122 "Source code on GitHub")
 
 Wire up a component to the `<Form>`, giving it access to form data as `status`. If the connected component 
 is passed a `name` property, then the component also gets the `value`, `invalid` and `onChange` properties.
