@@ -26,6 +26,7 @@ export default vdom => {
 	 * @class 
 	 * @extends Component
 	 * @param {Object}   props
+	 * @param {onChange} props.onChange
 	 * @param {onSubmit} props.onSubmit
 	 * @param {Function} props.onSubmitted
 	 * @param {Object}   props.initialState
@@ -46,6 +47,14 @@ export default vdom => {
 			this.finally = this.finally.bind(this);
 			this.ref = {};
 		}
+			/**
+			 * The function passed to `onChange` will be called whenever the ford data is updated.
+			 *
+			 * @function onChange
+			 * @param {Object}  data  An Object containing the complete form data.
+			 * @param {Boolean} valid a Boolean set to true if all the form elements are valid.
+			 */
+
 			/**
 			 * The function passed to `onSubmit` will be called when the form is submitted, and all
 			 * validations have been met.
@@ -100,6 +109,8 @@ export default vdom => {
 			if (this.state.invalid && valid) {
 				this.setState({ invalid : false });
 			}
+
+			if (p.onChange) p.onChange(this.state.data, valid);
 
 			if (valid && this.state !== s && this.context.form) {
 				let form = this.context.form;

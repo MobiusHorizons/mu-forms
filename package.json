@@ -1,6 +1,6 @@
 {
 	"name": "mu-forms",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Dead Simple HTML5 form management for React/Preact",
 	"main": "mu-forms.js",
 	"repository": "https://github.com/MobiusHorizons/mu-forms",
@@ -42,10 +42,6 @@
 	},
 	"dependencies": {
 		"linkstate": "^1.1.1"
-	},
-	"optionalDependencies": {
-		"preact": "^8.2.7",
-		"react": "^16.2.0"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
