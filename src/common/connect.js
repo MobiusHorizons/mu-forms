@@ -103,8 +103,7 @@ export default vdom => {
 			}
 
 			this.render = () => {
-				let { form: Form } = context;
-				let { validate, name } = props;
+				let { validate, name } = this.props;
 
 				let form = Form.ref.form;
 				let status = Form.state;
